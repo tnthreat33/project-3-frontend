@@ -11,10 +11,11 @@ function App() {
   const [lineup, setLineup] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/players')
+    fetch('http://localhost:9292/games')
       .then((r) => r.json())
       .then((data) => setGames(data));
   }, []);
+  
 
   function handleRemovePlayer(id) {
     const newPlayerList = players.filter((player) => player.id !== id);

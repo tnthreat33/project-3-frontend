@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 
-function GameForm({ addGame}) {
-  const [form, setForm] = useState({});
+function GameForm({ addGame }) {
+  const [form, setForm] = useState({
+    opponent: "",
+    date: "",
+    location: "",
+    team_score: "",
+    opponent_score: "",
+  });
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -24,50 +30,70 @@ function GameForm({ addGame}) {
       .then((res) => res.json())
       .then((data) => {
         addGame(data);
-        setForm({})
+        setForm({
+          opponent: "",
+          date: "",
+          location: "",
+          team_score: "",
+          opponent_score: "",
+        });
       });
   };
 
-  
   return (
-    <div className= "form">
-      <h2>New Player</h2>
-      <form onSubmit={handleSubmit} >
+    <div className="form">
+      <h2>New Game</h2>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="opponent">Opponent name:</label>
         <input
           onChange={handleChange}
           type="text"
           name="opponent"
-          value= {form.opponent || ''}
+          value={form.opponent}
           placeholder="Opponent name"
+          required
         />
+
+        <label htmlFor="date">Date:</label>
         <input
           onChange={handleChange}
           type="text"
           name="date"
-          value= {form.date || ''}
+          value={form.date}
           placeholder="Date"
+          required
         />
+
+        <label htmlFor="location">Location:</label>
         <input
           onChange={handleChange}
           type="text"
           name="location"
-          value= {form.location || ''}
+          value={form.location}
           placeholder="City, State"
+          required
         />
+
+        <label htmlFor="team_score">Home Team Score:</label>
         <input
           onChange={handleChange}
-          type="text"
+          type="number"
           name="team_score"
-          value= {form.team_score || ''}
+          value={form.team_score}
           placeholder="Home Team Score"
+          required
         />
-         <input
+
+        <label htmlFor="opponent_score">Opponent Score:</label>
+        <input
           onChange={handleChange}
-          type="text"
+          type="number"
           name="opponent_score"
-          value= {form.opponent_score || ''}
-          placeholder="Away Team Score"
+          value={form.opponent_score}
+          placeholder="Opponent Score"
+          required
         />
+
         <button type="submit">Add Game</button>
       </form>
     </div>

@@ -6,7 +6,7 @@ function Home({addGames}) {
   return (
     <div className= "home">
       <h1>
-        Center Grove Softball
+        Schedule Center 
       </h1>
      <GameForm addGame = {addGames} />
       
