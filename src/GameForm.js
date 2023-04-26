@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function PlayerForm({ addPlayer}) {
+function GameForm({ addGame}) {
   const [form, setForm] = useState({});
 
   const handleChange = (e) => {
@@ -14,7 +14,7 @@ function PlayerForm({ addPlayer}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3000/players", {
+    fetch("http://localhost:9292/games", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,7 +23,7 @@ function PlayerForm({ addPlayer}) {
     })
       .then((res) => res.json())
       .then((data) => {
-        addPlayer(data);
+        addGame(data);
         setForm({})
       });
   };
@@ -36,35 +36,42 @@ function PlayerForm({ addPlayer}) {
         <input
           onChange={handleChange}
           type="text"
-          name="name"
-          value= {form.name || ''}
-          placeholder="Player name"
+          name="opponent"
+          value= {form.opponent || ''}
+          placeholder="Opponent name"
         />
         <input
           onChange={handleChange}
           type="text"
-          name="position"
-          value= {form.position || ''}
-          placeholder="Position"
+          name="date"
+          value= {form.date || ''}
+          placeholder="Date"
         />
         <input
           onChange={handleChange}
           type="text"
-          name="jersey"
-          value= {form.jersey || ''}
-          placeholder="Jersey Number"
+          name="location"
+          value= {form.location || ''}
+          placeholder="City, State"
         />
         <input
           onChange={handleChange}
           type="text"
-          name="class"
-          value= {form.class || ''}
-          placeholder="Class"
+          name="team_score"
+          value= {form.team_score || ''}
+          placeholder="Home Team Score"
         />
-        <button type="submit">Add Player</button>
+         <input
+          onChange={handleChange}
+          type="text"
+          name="opponent_score"
+          value= {form.opponent_score || ''}
+          placeholder="Away Team Score"
+        />
+        <button type="submit">Add Game</button>
       </form>
     </div>
   );
 }
 
-export default PlayerForm;
+export default GameForm;

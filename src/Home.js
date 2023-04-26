@@ -1,14 +1,14 @@
 import React from 'react'
-import PlayerForm from './PlayerForm';
+import GameForm from './GameForm';
 
-function Home({addPlayer}) {
+function Home({addGames}) {
  
   return (
     <div className= "home">
       <h1>
         Center Grove Softball
       </h1>
-     <PlayerForm addPlayer = {addPlayer} />
+     <GameForm addGame = {addGames} />
       
     </div>
   );

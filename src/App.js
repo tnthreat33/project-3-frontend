@@ -7,21 +7,21 @@ import Lineup from './Lineup';
 import './App.css';
 
 function App() {
-  const [players, setPlayers] = useState([]);
+  const [games, setGames] = useState([]);
   const [lineup, setLineup] = useState([]);
 
   useEffect(() => {
     fetch('http://localhost:3000/players')
       .then((r) => r.json())
-      .then((data) => setPlayers(data));
+      .then((data) => setGames(data));
   }, []);
 
   function handleRemovePlayer(id) {
     const newPlayerList = players.filter((player) => player.id !== id);
     setPlayers(newPlayerList);
   }
-  function handleAddPlayer(player){
-    setPlayers([...players, player])
+  function handleAddGames(game){
+    setGames([...game, game])
   }
 
   function handleAddToLineup(player) {
@@ -48,7 +48,7 @@ function App() {
           <Lineup lineup={lineup} removePlayer= {removeLineupPlayer}/>
         </Route>
         <Route  path="/">
-          <Home addPlayer = {handleAddPlayer} />
+          <Home addGames = {handleAddGames} />
         </Route>
       </Switch>
     </div>
