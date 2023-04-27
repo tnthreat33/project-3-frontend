@@ -1,58 +1,51 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import NavBar from './NavBar';
-import Roster from './Roster';
 import Home from './Home';
-import Lineup from './Lineup';
+import Games from './Games'
+import GameDetails from './GameDetails'
+import Teams from './Teams'
 import './App.css';
 
 function App() {
+  const [teams, setTeams] = useState([]);
   const [games, setGames] = useState([]);
-  const [lineup, setLineup] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:9292/teams')
+      .then((r) => r.json())
+      .then((data) => setTeams(data));
+  }, []);
+  console.log(teams)
 
   useEffect(() => {
     fetch('http://localhost:9292/games')
       .then((r) => r.json())
       .then((data) => setGames(data));
   }, []);
+  console.log(games)
   
-
-  function handleRemovePlayer(id) {
-    const newPlayerList = players.filter((player) => player.id !== id);
-    setPlayers(newPlayerList);
-  }
-  function handleAddGames(game){
-    setGames([...game, game])
-  }
-
-  function handleAddToLineup(player) {
-    setLineup([...lineup, player]);
-  }
-  function removeLineupPlayer(id) {
-    const updatedLineup = lineup.filter(player => player.id !== id);
-    setLineup(updatedLineup);
-  }
 
   return (
     <div>
       <NavBar />
 
       <Switch>
-        <Route path="/roster">
-          <Roster
-            players={players}
-            handleRemovePlayer={handleRemovePlayer}
-            handleAddToLineup={handleAddToLineup}
-          />
+        <Route exact path="/">
+          <Home />
         </Route>
-        <Route path="/lineup">
-          <Lineup lineup={lineup} removePlayer= {removeLineupPlayer}/>
+        <Route exact path="/games">
+          <Games />
         </Route>
-        <Route  path="/">
-          <Home addGames = {handleAddGames} />
+        <Route path="/games/:gameId">
+          <GameDetails />
+        </Route>
+        <Route path="/teams">
+          <Teams teams = {teams}/>
         </Route>
       </Switch>
     </div>
+      
   );
 }
 

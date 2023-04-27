@@ -1,15 +1,12 @@
-import React from 'react'
-import GameForm from './GameForm';
 
-function Home({addGames}) {
- 
+import React from 'react';
+
+
+function Home({ addGames }) {
   return (
-    <div className= "home">
-      <h1>
-        Schedule Center 
-      </h1>
-     <GameForm addGame = {addGames} />
-      
+    <div>
+      <h1>Welcome to the Game App!</h1>
+      <h2> form will go here</h2>
     </div>
   );
 }
