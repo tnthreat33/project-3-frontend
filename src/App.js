@@ -9,7 +9,7 @@ import './App.css';
 
 function App() {
   const [teams, setTeams] = useState([]);
-  const [games, setGames] = useState([]);
+  
 
   useEffect(() => {
     fetch('http://localhost:9292/teams')
@@ -18,12 +18,6 @@ function App() {
   }, []);
   console.log(teams)
 
-  useEffect(() => {
-    fetch('http://localhost:9292/games')
-      .then((r) => r.json())
-      .then((data) => setGames(data));
-  }, []);
-  console.log(games)
   
 
   return (
