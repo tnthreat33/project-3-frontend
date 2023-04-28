@@ -29,10 +29,10 @@ function App() {
           <Home />
         </Route>
         <Route exact path="/games">
-          <Games />
+          <Games teams = {teams}/>
         </Route>
         <Route path="/games/:gameId">
-          <GameDetails />
+          <GameDetails teams = {teams}/>
         </Route>
         <Route path="/teams">
           <Teams teams = {teams}/>
