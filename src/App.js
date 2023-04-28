@@ -16,8 +16,18 @@ function App() {
       .then((r) => r.json())
       .then((data) => setTeams(data));
   }, []);
-  console.log(teams)
-
+ 
+  const handleCreateGame = (game) => {
+    fetch('http://localhost:9292/games', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(game),
+    })
+      .then((r) => r.json())
+      .then((data) => console.log(data));
+  };
   
 
   return (
@@ -26,7 +36,7 @@ function App() {
 
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home teams={teams} onCreateGame ={handleCreateGame}/>
         </Route>
         <Route exact path="/games">
           <Games teams = {teams}/>

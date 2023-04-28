@@ -13,7 +13,8 @@ function GameDetails({ teams }) {
 
   return (
     <div>
-      <h2>{game.opponent} at {game.date}</h2>
+      <h2>{game.opponent} </h2>
+      <p>{game.date}</p>
       <p>Location: {game.location}</p>
       <p>Team Score: {game.team_score}</p>
       <p>Opponent Score: {game.opponent_score}</p>
