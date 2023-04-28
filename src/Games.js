@@ -1,9 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+function Games({ teams, setTeams }) {
+  function deleteGame(id) {
+    fetch(`http://localhost:9292/games/${id}`, {
+      method: 'DELETE',
+    })
+    .then(() => {
+      const updatedTeams = teams.map(team => ({
+        ...team,
+        games: team.games.filter(game => game.id !== id)
+      }));
+      setTeams(updatedTeams);
+    });
+  }
 
-
-function Games({ teams }) {
   return (
     <div>
       {teams.map((team) => (
@@ -17,12 +28,12 @@ function Games({ teams }) {
                 <th>Location</th>
                 <th>Team Score</th>
                 <th>Opponent Score</th>
-                <th>Details</th>
+                <th>Update</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>
               {team.games.map((game) => (
-                
                 <tr key={game.id}>
                   <td>{game.opponent}</td>
                   <td>{game.date}</td>
@@ -30,12 +41,14 @@ function Games({ teams }) {
                   <td>{game.team_score}</td>
                   <td>{game.opponent_score}</td>
                   <td>
-                  <Link to={`/games/${game.id}`}>
-                <button >Details</button>
-                </Link>
+                    <Link to={`/games/${game.id}`}>
+                      <button>Update</button>
+                    </Link>
+                  </td>
+                  <td>
+                    <button onClick={() => deleteGame(game.id)}>Delete</button>
                   </td>
                 </tr>
-              
               ))}
             </tbody>
           </table>

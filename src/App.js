@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route} from 'react-router-dom';
 import NavBar from './NavBar';
 import Home from './Home';
 import Games from './Games'
@@ -9,6 +9,8 @@ import './App.css';
 
 function App() {
   const [teams, setTeams] = useState([]);
+
+  console.log(teams)
   
 
   useEffect(() => {
@@ -26,7 +28,19 @@ function App() {
       body: JSON.stringify(game),
     })
       .then((r) => r.json())
-      .then((data) => console.log(data));
+      .then((newGame) => {
+        const updatedTeams = teams.map((team) => {
+          if (team.id === newGame.team_id) {
+            return {
+              ...team,
+              games: [...team.games, newGame],
+            };
+          } else {
+            return team;
+          }
+        } );
+        setTeams(updatedTeams);
+      });
   };
   
 
@@ -36,10 +50,10 @@ function App() {
 
       <Switch>
         <Route exact path="/">
-          <Home teams={teams} onCreateGame ={handleCreateGame}/>
+          <Home teams={teams} onCreateGame ={handleCreateGame} />
         </Route>
         <Route exact path="/games">
-          <Games teams = {teams}/>
+          <Games teams = {teams} setTeams = {setTeams}/>
         </Route>
         <Route path="/games/:gameId">
           <GameDetails teams = {teams}/>
