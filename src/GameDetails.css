@@ -1,0 +1,49 @@
+.game-form {
+    background-color: black;
+    width: 800px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #DCDCDC;
+    border-radius: 10px;
+  }
+  
+  label {
+    color: white;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
+  }
+  
+  .game-form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .game-form input[type="text"],
+  .game-form input[type="date"],
+  .game-form input[type="number"],
+  .game-form select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #DCDCDC;
+  }
+  
+  .game-form button[type="submit"] {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4682B4;
+    color: #fefbd8;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+
+  

@@ -42,8 +42,7 @@ function GameDetails({ teams }) {
 
   return (
     <div>
-      <h2>{game.opponent}</h2>
-      <form onSubmit={handleUpdateGame}>
+      <form onSubmit={handleUpdateGame} className="game-form">
         <label>
           Opponent:
           <input type="text" name="opponent" value={game.opponent} onChange={handleInputChange} />
