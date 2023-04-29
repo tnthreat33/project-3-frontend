@@ -1,6 +1,7 @@
 
 import React from 'react';
 import GameForm from './GameForm';
+import './Home.css'
 
 
 function Home({onCreateGame, teams }) {

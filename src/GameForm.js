@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './GameForm.css'
 
 function GameForm({ teams, onCreateGame }) {
   const [opponent, setOpponent] = useState('');
@@ -28,40 +29,40 @@ function GameForm({ teams, onCreateGame }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form className="game-form" onSubmit={handleSubmit}>
+      <div className="form-group">
         <label>
-          Opponent:
+          Opponent :
           <input type="text" value={opponent} onChange={(event) => setOpponent(event.target.value)} />
         </label>
       </div>
-      <div>
+      <div className="form-group"> 
         <label>
-          Date:
+          Date :
           <input type="date" value={date} onChange={(event) => setDate(event.target.value)} />
         </label>
       </div>
-      <div>
+      <div className="form-group">
         <label>
-          Location:
+          Location :
           <input type="text" value={location} onChange={(event) => setLocation(event.target.value)} />
         </label>
       </div>
-      <div>
+      <div className="form-group"> 
         <label>
-          Team Score:
+          Team Score :
           <input type="number" value={teamScore} onChange={(event) => setTeamScore(event.target.value)} />
         </label>
       </div>
-      <div>
+      <div className="form-group">
         <label>
-          Opponent Score:
+          Opponent Score :
           <input type="number" value={opponentScore} onChange={(event) => setOpponentScore(event.target.value)} />
         </label>
       </div>
-      <div>
+      <div className="form-group">
         <label>
-          Team:
+          Team :
           <select value={teamId} onChange={(event) => setTeamId(event.target.value)}>
             <option value="">Select a team</option>
             {teams.length > 1 && teams.map((team) => (
