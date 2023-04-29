@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Games.css';
 
 function Games({ teams, setTeams }) {
   function deleteGame(id) {
@@ -16,20 +17,20 @@ function Games({ teams, setTeams }) {
   }
 
   return (
-    <div>
+    <div className="games-container">
       {teams.map((team) => (
         <div key={team.id}>
-          <h2>{team.name}</h2>
-          <table>
+          <h2 className="team-name">{team.name}</h2>
+          <table className="game-table">
             <thead>
-              <tr>
-                <th>Opponent</th>
-                <th>Date</th>
-                <th>Location</th>
-                <th>Team Score</th>
-                <th>Opponent Score</th>
-                <th>Update</th>
-                <th>Delete</th>
+            <tr>
+                <th className="table-header">Opponent</th>
+                <th className="table-header">Date</th>
+                <th className="table-header">Location</th>
+                <th className="table-header">Team Score</th>
+                <th className="table-header">Opponent Score</th>
+                <th className="table-header">Update</th>
+                <th className="table-header">Delete</th>
               </tr>
             </thead>
             <tbody>
