@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+Team and Game App 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple React application that allows users to view, add, update and remove games from a teams schedule. You can also view the teams. It uses React Router for navigation and useState and useEffect hooks for state management.
 
-## Available Scripts
+How to Run
 
-In the project directory, you can run:
+Clone the repository: git clone git@github.com:tnthreat33/project-3-frontend
 
-### `npm start`
+Navigate to the project directory: cd project-3-frontend
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Install dependencies: npm install
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Start the server: npm start
 
-### `npm test`
+Open your web browser and navigate to http://localhost:3000
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+View a list of games for each team 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Add a new game to the schedule 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Remove a game from the schedule 
 
-### `npm run eject`
+Update a game on the schedule 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+View all teams 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Navigate between pages using React Router
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Dependencies
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This application uses the following dependencies:
 
-## Learn More
+React, React Router, CSS and Ruby Sinatra (backend API)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Usage
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+App.js - The main component that contains the React Router setup and state management for teams which has the game information nested.
 
-### Code Splitting
+index.js - The entry point for the application that renders the App component.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+NavBar.js - A reusable component that contains links to navigate between pages.
 
-### Analyzing the Bundle Size
+Roster.js - A component that displays games for each team along with details. It also allows for the use to delete or update a game.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+GameDetails- A component that holds a form that allows for updates to the specific game selected. 
 
-### Making a Progressive Web App
+Home.js - A component that serves as the home page and contains a form to add new games. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Teams.js - A component that displays the current teams and their stats. 
 
-### Advanced Configuration
+GameForm.js - A component that contains a form to add a new game to the teams.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+API Reference
 
-### `npm run build` fails to minify
+This project uses a JSON server with the following endpoints:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+GET /players - returns a list of all players 
+GET /players/:id - returns a specific player by ID POST /players - creates a new player 
+PUT /players/:id - updates an existing player by ID 
+DELETE /players/:id - deletes a player by ID
+
+The server is located 
