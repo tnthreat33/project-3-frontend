@@ -59,9 +59,9 @@ API Reference
 
 This project uses a server built with Ruby and uses the Sinatra web framework and Active Record as the ORM with following endpoints:
 
-GET /teams - returns a list of all teams, games and record 
-DELETE /games/:id - delete a game by ID 
-PUT /games/:id - updates an existing game by ID 
-POST/games- creates a new game 
+    -GET /teams - returns a list of all teams, games and record 
+    -DELETE /games/:id - delete a game by ID 
+    -PUT /games/:id - updates an existing game by ID 
+    -POST/games- creates a new game 
 
-The server is located at localhost:9292 
+The server is located at localhost:9292. 
