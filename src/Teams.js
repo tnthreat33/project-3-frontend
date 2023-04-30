@@ -12,6 +12,7 @@ function Teams({teams}){
               {team.name} 
             </h4>
             <p>Location: {team.city}, {team.state}</p>
+            <p>Record: {team.record.wins}-{team.record.losses}</p>
           </div>
         ))
       }
