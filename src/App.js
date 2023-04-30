@@ -55,8 +55,8 @@ function App() {
         <Route exact path="/games">
           <Games teams = {teams} setTeams = {setTeams}/>
         </Route>
-        <Route path="/games/:gameId">
-          <GameDetails teams = {teams}/>
+        <Route path="/games/:id">
+          <GameDetails teams = {teams} setTeams ={setTeams}/>
         </Route>
         <Route path="/teams">
           <Teams teams = {teams}/>

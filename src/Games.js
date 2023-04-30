@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Games.css';
 
 function Games({ teams, setTeams }) {
+  console.log(teams)
   function deleteGame(id) {
     fetch(`http://localhost:9292/games/${id}`, {
       method: 'DELETE',
@@ -42,9 +43,9 @@ function Games({ teams, setTeams }) {
                   <td>{game.team_score}</td>
                   <td>{game.opponent_score}</td>
                   <td>
-                    <Link to={`/games/${game.id}`}>
-                      <button>Update</button>
-                    </Link>
+                  <Link to={`/games/${game.id}`}>
+                    <button>Update</button>
+                  </Link>
                   </td>
                   <td>
                     <button onClick={() => deleteGame(game.id)}>Delete</button>
