@@ -1,5 +1,6 @@
 import React from 'react';
 import './Team.css';
+import TeamForm from './TeamForm';
 
 function Teams({teams}){
 
@@ -15,6 +16,8 @@ function Teams({teams}){
           </div>
         ))
       }
+      <h1> Add New Team</h1>
+      <TeamForm teams = {teams} onCreateTeam = {onCreateTeam}/>
     </div>
   );
 }
