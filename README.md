@@ -1,6 +1,6 @@
 Team and Game App 
 
-This is a simple React application that allows users to view, add, update and remove games from a teams schedule. You can also view the teams. It uses React Router for navigation and useState and useEffect hooks for state management.
+This is a simple React application that allows users to view, add, update and remove games from a teams schedule. You can also view, add and delete the teams. It uses React Router for navigation and useState and useEffect hooks for state management.
 
 How to Run
 
@@ -49,9 +49,11 @@ Usage
 
     -Home.js - A component that serves as the home page and contains a form to add new games. 
 
-    -Teams.js - A component that displays all the teams and their record. 
+    -Teams.js - A component that displays all the teams.  
 
     -GameForm.js - A component that contains a form to add a new game to the teams.
+
+    -TeamForm.js - A component that contains a form to add a new team. 
 
 
 
@@ -60,6 +62,8 @@ API Reference
 This project uses a server built with Ruby and uses the Sinatra web framework and Active Record as the ORM with following endpoints:
 
     -GET /teams - returns a list of all teams, games and record 
+    -POST /teams - creates a new team 
+    -DELETE /teams/ :id - deletes a team by ID 
     -DELETE /games/:id - delete a game by ID 
     -PUT /games/:id - updates an existing game by ID 
     -POST/games- creates a new game 
