@@ -5,6 +5,9 @@
     padding: 20px;
     border: 1px solid #DCDCDC;
     border-radius: 10px;
+    text-align: center;
+    
+
   }
 
   label {
@@ -26,7 +29,7 @@
     
   }
   
-  .game-form input[type="text"],
+  .team-form input[type="text"],
   .game-form input[type="date"],
   .game-form input[type="number"],
   .game-form select {
@@ -35,7 +38,7 @@
     border: 1px solid #DCDCDC;
   }
   
-  .game-form button[type="submit"] {
+  .team-form button[type="submit"] {
     padding: 10px 20px;
     border-radius: 5px;
     border: none;

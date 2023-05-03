@@ -18,6 +18,8 @@ function App() {
       .then((r) => r.json())
       .then((data) => setTeams(data));
   }, []);
+
+ 
  
   const handleCreateGame = (game) => {
     fetch('http://localhost:9292/games', {
@@ -42,6 +44,7 @@ function App() {
         setTeams(updatedTeams);
       });
   };
+ 
   const handleCreateTeam = (team) => {
     fetch('http://localhost:9292/teams', {
       method: 'POST',
@@ -50,12 +53,15 @@ function App() {
       },
       body: JSON.stringify(team),
     })
-      .then((r) => r.json())
-      .then((newTeam) => {
-        setTeams([...teams, newTeam]);
-      });
-  };
+    .then((r) => r.json())
+    .then((newTeam) => {
+      // Create new empty games array for the new team
+      newTeam.games = [];
   
+      // Add the new team to the teams array
+      setTeams([...teams, newTeam]);
+    });
+  };
 
   return (
     <div>

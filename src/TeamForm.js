@@ -23,7 +23,7 @@ function TeamForm({ teams, onCreateTeam }) {
   };
 
   return (
-    <>
+    <div>
     <h1> Add New Team</h1>
     <form className="team-form" onSubmit={handleSubmit}>
       <div >
@@ -46,7 +46,7 @@ function TeamForm({ teams, onCreateTeam }) {
       </div>
       <button type="submit">Create Team</button>
     </form>
-    </>
+    </div>
   );
 }
 

@@ -5,13 +5,10 @@ import TeamForm from './TeamForm';
 function Teams({teams, onCreateTeam, setTeam}){
 
   const handleDeleteTeam = (id) => {
-    fetch(`/teams/${id}`, {
+    fetch(`http://localhost:9292/teams/${id}`, {
       method: 'DELETE'
     })
     .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
       return response.json();
     })
     .then(data => {
