@@ -72,7 +72,7 @@ function App() {
           <GameDetails teams = {teams} setTeams ={setTeams}/>
         </Route>
         <Route path="/teams">
-          <Teams teams = {teams} onCreateTeam={handleCreateTeam}/>
+          <Teams teams = {teams} onCreateTeam={handleCreateTeam} setTeam = {setTeams}/>
         </Route>
       </Switch>
     </div>
