@@ -42,6 +42,19 @@ function App() {
         setTeams(updatedTeams);
       });
   };
+  const handleCreateTeam = (team) => {
+    fetch('http://localhost:9292/teams', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(team),
+    })
+      .then((r) => r.json())
+      .then((newTeam) => {
+        setTeams([...teams, newTeam]);
+      });
+  };
   
 
   return (
@@ -59,7 +72,7 @@ function App() {
           <GameDetails teams = {teams} setTeams ={setTeams}/>
         </Route>
         <Route path="/teams">
-          <Teams teams = {teams}/>
+          <Teams teams = {teams} onCreateTeam={handleCreateTeam}/>
         </Route>
       </Switch>
     </div>

@@ -24,7 +24,7 @@ function GameDetails({ teams, setTeams }) {
   function handleSubmit(event) {
     event.preventDefault();
     fetch(`http://localhost:9292/games/${id}`, {
-      method: 'PUT',
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },

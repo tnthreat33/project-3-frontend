@@ -1,41 +1,44 @@
-
 import React, { useState } from 'react';
-
+import './TeamForm.css'
 
 function TeamForm({ teams, onCreateTeam }) {
-  const [city, setCity] = useState('');
   const [name, setName] = useState('');
+  const [city, setCity] = useState('');
   const [state, setState] = useState('');
-  
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const  new_team= {
+
+    const newTeam = {
       name,
       city,
       state,
-      
     };
-    onCreateTeam(new_team);
+
+    onCreateTeam(newTeam);
+
+    setName('');
     setCity('');
     setState('');
   };
 
   return (
+    <>
+    <h1> Add New Team</h1>
     <form className="team-form" onSubmit={handleSubmit}>
-      <div className="form-group">
+      <div >
         <label>
-          Team Name: 
+          Team Name:
           <input type="text" value={name} onChange={(event) => setName(event.target.value)} />
         </label>
       </div>
-      <div className="form-group"> 
+      <div >
         <label>
-          City :
-          <input type="date" value={city} onChange={(event) => setCity(event.target.value)} />
+          City:
+          <input type="text" value={city} onChange={(event) => setCity(event.target.value)} />
         </label>
       </div>
-      <div className="form-group">
+      <div >
         <label>
           State:
           <input type="text" value={state} onChange={(event) => setState(event.target.value)} />
@@ -43,8 +46,8 @@ function TeamForm({ teams, onCreateTeam }) {
       </div>
       <button type="submit">Create Team</button>
     </form>
+    </>
   );
 }
-
 
 export default TeamForm;
