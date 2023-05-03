@@ -19,6 +19,8 @@ function Teams({teams, onCreateTeam, setTeam}){
   }
 
   return (
+    <div>
+      <h1> All Teams </h1>
     <div className="teams">
       {teams.length > 0 &&
         teams.map((team) => (
@@ -29,10 +31,13 @@ function Teams({teams, onCreateTeam, setTeam}){
             <p>Location: {team.city}, {team.state}</p>
             <button onClick={() => handleDeleteTeam(team.id)}>Delete</button>
           </div>
+          
         ))
+        
       }
       
       <TeamForm teams = {teams} onCreateTeam = {onCreateTeam}/>
+    </div>
     </div>
   );
 }
